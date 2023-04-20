@@ -6,11 +6,30 @@
 //
 
 import UIKit
-
+import SwiftUI
+import FirebaseCore
+      
 @main
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+      FirebaseApp.configure()
+
+      return true
+    struct Infintex: App {
+      // register app delegate for Firebase setup
+      @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
 
+      var body: some Scene {
+        WindowGroup {
+          NavigationView {
+              ContentView()
+          }
+        }
+      }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
